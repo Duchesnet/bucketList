@@ -5,13 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-    >
+    <title>{% block title %}Welcome in BucketList!{% endblock %}</title>
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
 </head>
 <body>
-<h1>Ca fonctionne !!</h1>
+<div class="container">
+    <header>
+        <img src="{{ asset('img/logo.png') }}" alt="bucketList">
+        {% include'menu/nav.html.twig' %}
+        <h1>Bucket List</h1>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    <footer>
+        {% block footer %}
+            <h3>©BucketList {{ "now" | date("Y") }}</h3>
+        {% endblock %}
+    </footer>
+</div>
 </body>
 </html>

@@ -1,3 +1,87 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: lightgreen;
+    display: flex;
+    align-items: center; /* Aligne verticalement les éléments */
+    justify-content: space-between; /* Distribue les sections avec espace entre elles */
+    padding: 10px 20px;
+    position: relative; /* Nécessaire pour positionner le titre */
+}
+
+/* Logo */
+header img {
+    height: 50px; /* Ajuste la hauteur du logo */
+    width: auto; /* Préserve les proportions */
+}
+
+/* Titre centré */
+header h1 {
+    margin: 0; /* Supprime les marges par défaut */
+    font-size: 24px; /* Taille du texte */
+    color: black;
+    position: absolute; /* Positionnement absolu */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Corrige le décalage dû au `left: 50%` */
+}
+
+/* Menu de navigation */
+header nav {
+    margin-left: auto; /* Pousse le menu à droite */
+}
+
+header nav ul {
+    display: flex;
+    list-style: none; /* Supprime les puces des éléments de menu */
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-right: 15px; /* Espacement entre les liens */
+}
+
+header nav ul li a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: white; /* Texte plus visible */
+    font-size: 18px;
+    padding: 5px 10px; /* Ajoute un espace autour du texte */
+    background-color: darkblue; /* Couleur de fond pour les liens */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease; /* Animation pour hover */
+}
+
+header nav ul li a:hover {
+    background-color: deepskyblue; /* Couleur différente au survol */
+}
+
+
+
+footer {
+    background-color: sandybrown;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: beige;
+}
+
 body {
     background-color: skyblue;
 }
