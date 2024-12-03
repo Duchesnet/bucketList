@@ -3,85 +3,316 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    background: linear-gradient(#f9f9f9, #e3e6ef);
+    color: #333;
 }
 
+/* Conteneur principal */
 .container {
-    flex: 1;
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background-color: lightgreen;
     display: flex;
-    align-items: center; /* Aligne verticalement les éléments */
-    justify-content: space-between; /* Distribue les sections avec espace entre elles */
-    padding: 10px 20px;
-    position: relative; /* Nécessaire pour positionner le titre */
+    align-items: center;
+    justify-content: space-between; /* Espacement entre logo, titre et menu */
+    padding: 20px;
+    background-color: #FFF6E1; /* Fond doux pour l'en-tête */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
-header img {
-    height: 50px; /* Ajuste la hauteur du logo */
-    width: auto; /* Préserve les proportions */
+.header-logo img {
+    height: 60px;
+    width: auto;
 }
 
-/* Titre centré */
-header h1 {
-    margin: 0; /* Supprime les marges par défaut */
-    font-size: 24px; /* Taille du texte */
-    color: black;
-    position: absolute; /* Positionnement absolu */
-    left: 50%; /* Centre horizontalement */
-    transform: translateX(-50%); /* Corrige le décalage dû au `left: 50%` */
-}
-
-/* Menu de navigation */
-header nav {
-    margin-left: auto; /* Pousse le menu à droite */
-}
-
-header nav ul {
-    display: flex;
-    list-style: none; /* Supprime les puces des éléments de menu */
+.header-title h1 {
+    font-family: "Bokor", sans-serif;
+    font-size: 2.5em;
+    color: #333;
     margin: 0;
+    text-align: center;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: #333;
+    font-family: "Parkinsans", sans-serif;
+    font-size: 1.1em;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-nav a:hover {
+    background-color: #FFC07F;
+    color: #FFF;
+}
+
+/* Liste des souhaits */
+main {
+    flex: 1;
+    padding: 40px;
+    text-align: center;
+    background-color: #FFE7CC; /* Teinte plus chaleureuse */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+main h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+}
+
+/* Cartes de souhait */
+.wish-list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes flexibles */
+    list-style: none;
     padding: 0;
 }
 
-header nav ul li {
-    margin-right: 15px; /* Espacement entre les liens */
+.wish-list li {
+    background-color: #FFF6E1; /* Fond doux et chaleureux */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-header nav ul li a {
-    text-decoration: none; /* Supprime le soulignement des liens */
-    color: white; /* Texte plus visible */
-    font-size: 18px;
-    padding: 5px 10px; /* Ajoute un espace autour du texte */
-    background-color: darkblue; /* Couleur de fond pour les liens */
-    border-radius: 5px; /* Coins arrondis */
-    transition: background-color 0.3s ease; /* Animation pour hover */
+.wish-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-header nav ul li a:hover {
-    background-color: deepskyblue; /* Couleur différente au survol */
+.wish-list li h3 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    color: #333;
 }
 
+.wish-list li p {
+    font-size: 0.9em;
+    margin: 0;
+    color: #666;
+}
 
+/* Cartes de souhait */
+.wish-list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colonnes flexibles */
+    list-style: none;
+    padding: 0;
+}
 
+.wish-card {
+    background-color: #FFF6E1; /* Fond doux et chaleureux */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+}
+
+.wish-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.wish-card p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.wish-card a.wish-link {
+    display: inline-block;
+    font-size: 0.9em;
+    color: white;
+    background-color: #007BFF;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.wish-card a.wish-link:hover {
+    background-color: #0056b3;
+    color: #FFF;
+}
+
+.wish-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
 footer {
     background-color: sandybrown;
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
     margin-top: auto;
+    font-size: 1em;
+    color: #333;
+    font-weight: bold;
 }
 
-main {
-    flex: 1;
-    padding: 20px;
+/* Formulaire */
+form {
+    background-color: #FFF6E1; /* Fond chaleureux */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+form button {
+    background-color: #007BFF; /* Bleu classique */
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Couleur plus foncée au survol */
+    transform: scale(1.05); /* Légère mise en avant au survol */
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-label {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #FFF;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #007BFF;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.form-error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Responsive Design pour le formulaire */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .form-label {
+        font-size: 1em;
+    }
+
+    form button {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+}
+
+/* Flash Messages */
+.flash-container {
+    margin: 20px auto;
+    max-width: 800px; /* Limite la largeur */
+    padding: 0 15px;
+}
+
+.flash {
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
     text-align: center;
-    background-color: beige;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
 }
 
-body {
-    background-color: skyblue;
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
 }
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+.flash-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+

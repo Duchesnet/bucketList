@@ -10,14 +10,33 @@
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <header>
-        <img src="{{ asset('img/logo.png') }}" alt="bucketList">
-        {% include'menu/nav.html.twig' %}
-        <h1>Bucket List</h1>
+        <div class="header-logo">
+            <img src="{{ asset('img/logo.png') }}" alt="bucketList">
+        </div>
+        <div class="header-title">
+            <h1>Bucket List</h1>
+        </div>
+        <nav class="header-nav">
+            {% include'menu/nav.html.twig' %}
+        </nav>
     </header>
+    <!-- Flash Messages -->
+    <div class="flash-container">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
     <main>
         {% block body %}{% endblock %}
     </main>

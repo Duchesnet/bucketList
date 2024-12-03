@@ -6,5 +6,24 @@
 
 {% block body %}
     <h1>Détail du souhait</h1>
-{% endblock %}
+    <section>
+        <article class="wish-details">
+            <div class="wish-details-infos">
+                <div>Titre : {{ wish.title }}</div>
+                <div>Catégorie : {{ wish.category.name }}</div>
+                <div>Auteur : {{ wish.author }}</div>
+                <div>Publié le : {{ wish.dateCreated | date('Y-m-d') }}</div>
+                <div>{{ wish.description }}</div>
+            </div>
+        </article>
+    </section>
 
+    <!-- Buttons for Edit and Delete -->
+    <div class="wish-actions">
+        <a href="{{ path('wish_edit', { 'id': wish.id }) }}" class="btn btn-edit">Modifier</a>
+        <form method="post" action="{{ path('wish_delete', { 'id': wish.id }) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce souhait ?');">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ wish.id) }}">
+            <button type="submit" class="btn btn-delete">Supprimer</button>
+        </form>
+    </div>
+{% endblock %}

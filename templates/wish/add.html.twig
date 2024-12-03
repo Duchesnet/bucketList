@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme wishForm 'views/form-theme.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | {{ wish.id is defined ? 'Modifier' : 'Ajouter' }} un souhait
+{% endblock %}
+
+{% block body %}
+    <h1>{{ wish.id is defined ? 'Modifier un souhait' : 'Ajout d\'un souhait' }}</h1>
+
+    {{ form_start(wishForm) }}
+    {{ form_widget(wishForm) }}
+    <button>
+        {{ wish.id is defined ? 'Modifier' : 'Créer' }}
+    </button>
+    {{ form_end(wishForm) }}
+{% endblock %}
