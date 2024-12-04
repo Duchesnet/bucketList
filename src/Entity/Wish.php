@@ -45,7 +45,7 @@ class Wish
     /**
      * @var Collection<int, Comment>
      */
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'wish')]
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'wish', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $comments;
 
     public function __construct()

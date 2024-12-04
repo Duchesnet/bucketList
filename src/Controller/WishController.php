@@ -90,10 +90,10 @@ class WishController extends AbstractController
     #[IsGranted('WISH_EDIT', 'wish')]
     public function edit(Wish $wish, EntityManagerInterface $entityManager, Request $request): Response
     {
-//        if ($wish->getAuthor() !== $this->getUser()) {
-//            $this->addFlash('error', 'Vous ne pouvez modifier que vos propres souhaits');
-//            throw new AccessDeniedException('Vous ne pouvez modifier que vos propres souhaits.');
-//        }
+        if ($wish->getAuthor() !== $this->getUser()) {
+            $this->addFlash('error', 'Vous ne pouvez modifier que vos propres souhaits');
+            throw new AccessDeniedException('Vous ne pouvez modifier que vos propres souhaits.');
+        }
 
         $wishForm = $this->createForm(WishType::class, $wish);
 
@@ -129,7 +129,7 @@ class WishController extends AbstractController
             return $this->redirectToRoute('wish_list');
         }
 
-        if ($wish->getAuthor() !== $this->getUser()) {
+        if ($wish->getAuthor() !== $this->getUser()->getUserIdentifier()) {
             $this->addFlash('error', 'Vous ne pouvez supprimer que vos souhaits');
             throw new AccessDeniedException('Vous ne pouvez supprimer que vos propres souhaits.');
         }

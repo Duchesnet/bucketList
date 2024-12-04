@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 class Censurator
 {
-    private $censure = ['macron', 'politique', 'chat'];
+    private array $censure = ['macron', 'politique', 'chat', 'cul', 'poulet'];
 
     public function purify(string $string) : string
     {
