@@ -21,9 +21,46 @@
     <!-- Buttons for Edit and Delete -->
     <div class="wish-actions">
         <a href="{{ path('wish_edit', { 'id': wish.id }) }}" class="btn btn-edit">Modifier</a>
-        <form method="post" action="{{ path('wish_delete', { 'id': wish.id }) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce souhait ?');">
+        <form method="post" action="{{ path('wish_delete', { 'id': wish.id }) }}"
+              onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce souhait ?');">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ wish.id) }}">
             <button type="submit" class="btn btn-delete">Supprimer</button>
         </form>
     </div>
+
+    <!-- Section for Comments -->
+    <section class="comments-section">
+        <h2>Commentaires</h2>
+
+        {% if comments is not empty %}
+            <ul class="comments-list">
+                {% for comment in comments %}
+                    <li class="comment-item">
+                        <div>
+                            <strong>{{ comment.author }}</strong> - {{ comment.dateCreated | date('Y-m-d H:i') }}
+                        </div>
+                        <div>
+                            Note :
+                            {% for i in 1..5 %}
+                                {{ i <= comment.rate ? '⭐' : '☆' }}
+                            {% endfor %}
+                        </div>
+                        <div>{{ comment.commentText }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun commentaire pour le moment.</p>
+        {% endif %}
+
+        {% if app.user %}
+            <h3>Ajouter un commentaire</h3>
+            {{ form_start(commentForm) }}
+            {{ form_widget(commentForm) }}
+            <button class="btn btn-primary">Envoyer</button>
+            {{ form_end(commentForm) }}
+        {% else %}
+            <p><a href="{{ path('app_login') }}">Connectez-vous</a> pour ajouter un commentaire.</p>
+        {% endif %}
+    </section>
 {% endblock %}
