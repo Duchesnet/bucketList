@@ -2,6 +2,7 @@
     <ul>
         <li><a href="{{ path('app_main') }}">Home</a></li>
         <li><a href="{{ path('wish_list') }}">Liste des souhaits</a></li>
+        <li><a href="{{ path('events') }}">Evénements</a></li>
         {% if app.user %}
             <li><a href="{{ path('wish_add') }}">Nouveau souhait</a></li>
             <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
